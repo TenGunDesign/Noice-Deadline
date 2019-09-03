@@ -7,3 +7,6 @@ Copy the contents of `src/plugins` and `src/submission` into the corresponding s
 
 ## Usage
 Open the submission GUI from Deadline Monitor. You will find the customary settings under Job Description and Job Options. Under Noice Options, use Input Pattern to browse for an image from the sequence you wish to denoise. The frame list and output pattern will populate automatically with the conventions of the Maya Noice GUI. You can learn more about the remaining settings from the [official documentation](https://docs.arnoldrenderer.com/display/A5AFMUG/Arnold+Denoiser).
+
+## Development
+Use the `deploy.py` script to copy source files into your Deadline repository. To test functions without deploying, use `$DEADLINE_PATH/deadlinecommand -ExecuteScriptNoGui` in place of `python` to run your scripts. This will make Deadline-related imports available. 
