@@ -31,7 +31,7 @@ def plugin_options():
     field("InputPattern",
           "Input pattern",
           "Full file path for first frame of the sequence to denoise",
-          browser=True).ValueModified.connect(populate_frame_list)
+          browser=True).ValueModified.connect(autofill_from_input_pattern)
     field("OutputPattern",
           "Output pattern",
           "Full file path for the first frame of output",
@@ -100,6 +100,11 @@ def button(label, callback):
     return button
 
 
+def autofill_from_input_pattern():
+    populate_frame_list()
+    populate_output_path()
+
+
 # Rudimentary, just uses the smallest and greatest frame numbers that match the pattern
 def populate_frame_list():
     directory, file = os.path.split(dialog.GetValue("InputPattern"))
@@ -111,6 +116,15 @@ def populate_frame_list():
         dialog.SetValue("Frames", frame_range)
     elif len(frames) > 0:
         dialog.SetValue("Frames", str(frames[0]))
+
+
+def populate_output_path():
+    input_pattern = dialog.GetValue("InputPattern")
+    pattern = re.compile(r"(.*\d+)\.exr")
+    match = pattern.match(input_pattern)
+    if match is not None:
+        output_pattern = "{0}_denoised".format(match.group(1))
+        dialog.SetValue("OutputPattern", output_pattern)
 
 
 def next_row():
