@@ -1,0 +1,21 @@
+[About]
+Type=label
+Label=About
+Category=About Plugin
+CategoryOrder=-1
+Default=The Arnold Renderer denoiser
+Description=Not configurable
+
+[ConcurrentTasks]
+Type=label
+Label=ConcurrentTasks
+Category=About Plugin
+CategoryOrder=-1
+Default=True
+Description=Not configurable
+
+[NoiceRenderExecutable]
+Type=filename
+Label=Noice Render Executable
+Default=c:\solidangle\mtoadeploy\2018\bin\noice.exe
+Description=The path to the executable file used for rendering.

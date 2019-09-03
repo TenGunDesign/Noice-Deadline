@@ -1,0 +1,50 @@
+[InputPattern]
+Type=Filename
+Label=Input pattern
+Description=Full file path for first frame of the sequence to denoise. 
+Required=True
+
+
+[OutputPattern]
+Type=FilenameSave
+Label=Output pattern
+Description=Full file path for the first frame of output.
+Required=True
+
+[ExtraFrames]
+Type=Integer
+Label=Extra Frames
+Description=Number of frames to pad before and after for temporal stability.  
+Required=false
+DefaultValue=0
+
+
+[PatchRadius]
+Type=Integer
+Label=Patch Radius
+Description=Neighborhood patch radius, size of pixel neighborhood to compare. 0-6
+Required=false
+DefaultValue=3
+
+
+[SearchRadius]
+Type=Integer
+Label=Search Radius
+Description=Search radius, higher values mean a wider search for similar pixel neighborhoods. 6-21
+Required=false
+DefaultValue=9
+
+
+[Variance]
+Type=Float
+Label=Variance
+Description=Variance threshold, higher values mean more aggressive denoising.  Between 0 and 1.
+Required=false
+DefaultValue=0.25
+
+
+[AOV]
+Type=String
+Label=Light AOVs
+Description=Light AOV name to be co-denoised.  Separate with spaces.
+Required=false
