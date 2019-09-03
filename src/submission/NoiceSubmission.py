@@ -123,7 +123,7 @@ def populate_output_path():
     pattern = re.compile(r"(.*\d+)\.exr")
     match = pattern.match(input_pattern)
     if match is not None:
-        output_pattern = "{0}_denoised".format(match.group(1))
+        output_pattern = "{0}_denoised.exr".format(match.group(1))
         dialog.SetValue("OutputPattern", output_pattern)
 
 
